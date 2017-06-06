@@ -23,10 +23,9 @@ module.exports = generators.Base.extend({
            componentFileName: this.componentFileName,
            componentClassName: this.componentName.charAt(0).toUpperCase() + this.componentName.slice(1)
        };
-       var pathPrefix = 'app/components/' + this.componentsPath + '/' + this.componentFileName;
+       var pathPrefix = __dirname + this.componentsPath + '/' + this.componentFileName;
 
-      this.fs.copyTpl(this.templatePath('_component.js'), this.destinationPath(pathPrefix + '-component.js'), args);
-      this.fs.copyTpl(this.templatePath('_controller.js'), this.destinationPath(pathPrefix + '-controller.js'), args);
+      this.fs.copyTpl(this.templatePath('_component.js'), this.destinationPath(pathPrefix + '.component.js'), args);
       this.fs.copyTpl(this.templatePath('_template.html'), this.destinationPath(pathPrefix + '.html'), args);
       this.fs.copyTpl(this.templatePath('_styles.scss'), this.destinationPath(pathPrefix + '.scss'), args);
   }
