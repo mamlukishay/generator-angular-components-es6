@@ -1,11 +1,15 @@
 import angular from 'angular';
 
-import Controller from './<%= componentFileName %>-controller.js';
-import Template from './<%= componentFileName %>.html';
-import styles from './<%= componentFileName %>.scss';
+const template = require('./company-page-x.html');
 
-export default angular.module("<%= componentName %>")
-                .component("<%= componentName %>", {
-                    controller: Controller,
-                    templateUrl: Template
-                });
+export const companyPageXComponent = {
+  template,
+  controller: class <%= componentClassName %> {
+    constructor() {
+      'ngInject';
+    }
+  },
+};
+
+
+
